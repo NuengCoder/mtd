@@ -22,6 +22,7 @@ Your Own Todo List App built with Flutter.
 | -------- | -------- |
 | Android  | [![Build Android](https://github.com/NuengCoder/mtd/actions/workflows/build-android.yml/badge.svg)](https://github.com/NuengCoder/mtd/actions/workflows/build-android.yml) |
 | iOS      | [![Build iOS](https://github.com/NuengCoder/mtd/actions/workflows/build-ios.yml/badge.svg)](https://github.com/NuengCoder/mtd/actions/workflows/build-ios.yml) |
+| Release  | [![Release](https://github.com/NuengCoder/mtd/actions/workflows/release.yml/badge.svg)](https://github.com/NuengCoder/mtd/actions/workflows/release.yml) |
 
 ## Getting Started
 
@@ -66,6 +67,20 @@ lib/
 ├── main.dart
 └── ...
 ```
+
+## Release
+
+Tag a commit to trigger the release workflow:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+This builds:
+- Android release APK + App Bundle
+- iOS debug build (unsigned)
+- Creates a GitHub Release with all artifacts attached
 
 ## Resources
 
