@@ -87,6 +87,11 @@ jobs:
           name: ios-debug-build
           path: ios-debug-build
 
+      - name: Zip iOS build for release
+        run: |
+          cd ios-debug-build
+          zip -r ../ios-debug-build.zip .
+
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
@@ -97,6 +102,6 @@ jobs:
           files: |
             android-release/*.apk
             android-release/*.aab
-            ios-debug-build/ios-debug-build.zip
+            ios-debug-build.zip
           draft: false
           prerelease: false
