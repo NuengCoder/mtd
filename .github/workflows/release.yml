@@ -51,19 +51,21 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build iOS (debug, no codesign)
-        run: flutter build ios --debug --no-codesign
+      - name: Build iOS (release, no codesign)
+        run: flutter build ios --release --no-codesign
 
-      - name: Zip iOS build
+      - name: Build IPA (unsigned)
         run: |
-          cd build/ios
-          zip -r ../../ios-debug-build.zip Debug-iphoneos Debug-iphonesimulator
+          mkdir -p Payload
+          cp -r build/ios/Release-iphoneos/Runner.app Payload/
+          zip -r mtd.ipa Payload/
+          rm -rf Payload
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ios-debug-build
-          path: ios-debug-build.zip
+          name: ios-release-build
+          path: mtd.ipa
 
   release:
     needs: [android, ios]
@@ -84,13 +86,8 @@ jobs:
       - name: Download iOS artifacts
         uses: actions/download-artifact@v4
         with:
-          name: ios-debug-build
-          path: ios-debug-build
-
-      - name: Zip iOS build for release
-        run: |
-          cd ios-debug-build
-          zip -r ../ios-debug-build.zip .
+          name: ios-release-build
+          path: ios-release-build
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -102,6 +99,6 @@ jobs:
           files: |
             android-release/*.apk
             android-release/*.aab
-            ios-debug-build.zip
+            ios-release-build/*.ipa
           draft: false
           prerelease: false
