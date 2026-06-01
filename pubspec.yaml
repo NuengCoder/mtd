@@ -1,0 +1,71 @@
+name: mtd
+description: "Your Own Todo List App"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # UI
+  cupertino_icons: ^1.0.8
+
+  # Database
+  sqflite: ^2.4.2
+  path_provider: ^2.1.5
+  path: ^1.9.1
+
+  # State Management
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+
+  # Notifications
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.10.0
+
+  # Formatting
+  intl: ^0.20.2
+
+  # Media Picking
+  image_picker: ^1.1.2
+  file_picker: ^8.1.7
+
+  # Sharing / Export
+  share_plus: ^10.1.4
+
+  # Audio
+  audioplayers: ^6.1.0
+
+  # Background Tasks
+  workmanager: ^0.9.0+3
+
+  # Settings Quick-Read
+  shared_preferences: ^2.3.5
+
+  # Color Picker
+  flutter_colorpicker: ^1.1.0
+  excel: ^4.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  riverpod_generator: ^2.6.3
+  build_runner: ^2.4.14
+  flutter_launcher_icons: ^0.14.3
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/app-icon.png
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/app-icon.png"

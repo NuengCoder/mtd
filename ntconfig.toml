@@ -1,0 +1,51 @@
+ignored_directory_names = [
+    ".dart_tool",
+    ".git",
+    ".idea",
+    "build",
+    "installer",
+    "linux",
+    "macos",
+    "node_modules",
+    "target",
+    "test",
+    "venv",
+    "web",
+    "windows",
+    "ios",
+    "android",
+]
+ignored_extensions = [
+    "lock",
+    "log",
+]
+extra_supported_extensions = []
+ignored_files = [
+    "CHANGELOG.md",
+    "push.txt",
+]
+extra_supported_files = ["installer.iss"]
+
+[run_aliases]
+bdt = "dart analyze lib/ && flutter run -d adb-RFCW71EGWDW-bD5GmI._adb-tls-connect._tcp --release"
+rmcg = "rm ntconfig.toml"
+remtd = "clear && frp && bd && pause && clear"
+clbm = "@lm && txtc && @mtd"
+clbs = "@ls && txtc && @mtd"
+bd2 = "dal && flutter run -d R5CXC2GES8Y --release"
+clbw = "@lw && txtc && @mtd"
+pjcg = "ignored && tp ls && ral ls"
+dal = "dart analyze lib/"
+acbe = "@ntc && cargo clean && cargo build --release && exit"
+fr = "flutter run -d RFCW71EGWDW --release"
+clbp = "@lp && txtc && @mtd"
+csh = "@nts && txtc && back"
+cdeb = "cargo deb"
+frp = "flutter clean && flutter pub get"
+rm = "del"
+ip = "ipconfig"
+ct = "cargo test"
+clbr = "@lr && txtc && @mtd"
+clbdb = "@ldb && txtc && @mtd"
+bd = "dal && fr"
+cbe = "cargo clean && cargo build --release && exit"
