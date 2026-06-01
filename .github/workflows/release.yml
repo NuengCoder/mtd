@@ -54,13 +54,16 @@ jobs:
       - name: Build iOS (debug, no codesign)
         run: flutter build ios --debug --no-codesign
 
+      - name: Zip iOS build
+        run: |
+          cd build/ios
+          zip -r ../../ios-debug-build.zip Debug-iphoneos Debug-iphonesimulator
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ios-debug-build
-          path: |
-            build/ios/Debug-iphoneos/
-            build/ios/Debug-iphonesimulator/
+          path: ios-debug-build.zip
 
   release:
     needs: [android, ios]
@@ -92,7 +95,8 @@ jobs:
           body: |
             Release ${{ github.ref_name }} of mtd.
           files: |
-            android-release/**
-            ios-debug-build/**
+            android-release/*.apk
+            android-release/*.aab
+            ios-debug-build/ios-debug-build.zip
           draft: false
           prerelease: false
